@@ -5,7 +5,7 @@
 *.pdf
 hoge.map
 
-chapter1.fdb_latexmk
-chapter1.fls
+*.fdb_latexmk
+*.fls
 makefile__
 main.synctex.gz
