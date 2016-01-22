@@ -7,5 +7,7 @@ hoge.map
 
 *.fdb_latexmk
 *.fls
+*.xlsx
+
 makefile__
 main.synctex.gz
