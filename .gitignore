@@ -1,0 +1,11 @@
+*.aux
+*.dvi
+*.toc
+*.log
+*.pdf
+hoge.map
+
+chapter1.fdb_latexmk
+chapter1.fls
+makefile__
+main.synctex.gz

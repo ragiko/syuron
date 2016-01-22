@@ -1,0 +1,246 @@
+% !TEX encoding = UTF-8 Unicode
+%\documentclass[a4paper,12pt,report]{jsbook}
+\documentclass[a4paper,twocolumn,report,10.5pt]{jsbook}
+
+
+%% ããããããã±ãŒãž %%
+\usepackage{ascmac}
+\usepackage{url}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{pifont}
+\usepackage{here}   % æå®åã®åŒ·ãå Žææå®
+\usepackage{otf}    % UTFæå­æå®
+
+%% ç»åèš­å® %%
+
+% ç»åïŒã°ã©ãã®ãã£ã¬ã¯ããªãæå®
+\graphicspath{{./image/}{./graph/}}
+
+%% æ°åŒèš­å® %%
+
+% æ°åŒïŒæ°åŒçšãã©ã³ã
+\usepackage{amsmath,amssymb,bm}	
+\newcommand{\argmax}{\mathop{\rm arg~max}\limits}
+\newcommand{\argmin}{\mathop{\rm arg~min}\limits}
+
+% å®çŸ©
+\def\vector#1{\mbox{\boldmath $#1$}}
+
+%%%% ããŒãžèš­å® %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% ãããã»ããã¿ã®èš­å® %%
+
+% ãããïŒããã¿ãªã©ã«ç¹æ®ãªã¹ã¿ã€ã«ãå°å¥ããããã±ãŒãž
+\usepackage{fancyhdr}
+
+% ãããã«äžç·ãå¥ãã
+\pagestyle{fancyplain}
+% ãããã®å·Šã«ç¯ã®èŠåºããè¡šç€º
+\lhead{\leftmark}
+% ãããã®å³ã«ããŒãžçªå·ãè¡šç€º
+\rhead{\thepage}
+% ãããã®äž­å€®
+\chead{}
+
+% ããã¿ã®å·Š
+\lfoot{}
+% ããã¿ã®å³
+\rfoot{}
+% ããã¿ã®äž­å€®
+\cfoot{}
+
+%å³ãšæ¬æã®äœçœïŒããåããããã©ç©ºããããŠãŠäžæ°å¥œã ã£ãã®ã§è¿œå ïŒ
+\setlength\intextsep{2zw}	% éäž­ã«åºåãããå³ãšæ¬æã®äœçœ
+\setlength\textfloatsep{2zw}	% å³ãšæ¬æã®äœçœ
+\setlength\abovecaptionskip{0pt} %å³ãšã­ã£ãã·ã§ã³ã®äœçœ
+\setlength{\itemsep}{0cm}	%ç®æ¡æžãã®é ç®é 
+
+
+
+%% æ¬æã®å¹ã®èš­å® %%
+%\setlength{\textwidth}{42zh}
+\setlength{\textwidth}{54zh}
+
+% æ®µæ«ã®è¡é£ã³ãç¡ãã
+\setlength{\parskip}{0pt}
+\setlength{\topskip}{\Cht}
+
+% ç« çªå·ïŒ
+\renewcommand{\chaptermark}[1]{\markboth{ç¬¬\ \thechapter\ ç« ~#1}{}}
+
+% subsectionãç®æ¬¡ã«è¡šç€º
+\setcounter{tocdepth}{2}
+
+
+%%%% ããããææžã®åéš %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%
+%%  è¡šçŽ
+
+\begin{titlepage}
+\begin{center}
+
+{
+\fontsize{28pt}{28pt}\selectfont % ãã©ã³ããµã€ãº28ptïŒè¡éã20pt
+
+
+
+
+% % ã¿ã€ãã«ïŒãŽã·ãã¯äœïŒ
+% {\gt
+%  \vspace*{2.5zh}
+%  ææžæ€çŽ¢ã«ãããç²ŸåºŠåäžã®èŠå ã®åæãšãã®åœ±é¿è©äŸ¡\\ %ã¿ã€ãã«1è¡ç®
+%  \vspace{1zh}
+%  % ãã¬ã€ãªã¹ãã®èªåçæ\\ %ã¿ã€ãã«2è¡ç®
+
+% \vspace{5zh}
+
+
+% \fontsize{22pt}{22pt}\selectfont % ãã©ã³ããµã€ãº2ptïŒè¡éã20pt
+% %å¹Žæ
+% 2015å¹Ž\hspace{0.5zh}2æ\\% å¹Žæ
+% %æå±
+% \vspace{0.5zh}
+% å²éå€§å­Šå€§å­Šé¢\hspace{1zh}å·¥å­Šç ç©¶ç§\hspace{1zh}\\%
+% \vspace{0.5zh}
+% å¿çšæå ±å­Šå°æ»\hspace{1zh}éæ°Žã»ç°æç ç©¶å®€\\
+
+% %åå
+% \vspace{2zh}
+% å\hspace{1zh}è¬ä»\\
+
+% %æå°æå¡
+% \vspace{3zh}
+% æå°æå¡\hspace{1zh}éæ°Ž\hspace{1zh}æã\\
+% \vspace{0.5zh}
+% ãããã\hspace{1zh}ç°æ\hspace{1zh}å²å£
+% } % \gtãããŸã§
+% }
+
+% タイトル（ゴシック体）
+{\gt
+\vspace*{2.5zh}
+音声ドキュメント検索手法の分析と精度改善\\ %タイトル1行目
+
+\vspace{5zh}
+
+
+\fontsize{22pt}{22pt}\selectfont % フォントサイズ2pt，行送り20pt
+
+%年月
+2018年\hspace{0.5zh}3月\\% 年月
+%所属
+\vspace{0.5zh}
+岐阜大学大学院\hspace{1zh}工学研究科\hspace{1zh}\\%
+\vspace{0.5zh}
+応用情報学専攻\hspace{1zh}速水・田村研究室\\
+
+%名前
+\vspace{2zh}
+田口\hspace{1zh}拓明\\
+
+\vspace{3zh}
+指導教員\hspace{1zh}速水\hspace{1zh}悟　\\
+\vspace{0.5zh}
+　　　　\hspace{1zh}田村\hspace{1zh}哲嗣\\
+} % \gtここまで
+}
+
+
+
+
+
+\end{center}
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  ç®æ¬¡
+
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  æ¬æ
+
+\include{chapter1} % ç¬¬1ç« (chapter1.texã«èšè¿°)
+
+\include{chapter2}
+
+\include{word2vec}
+
+\include{chapter3}
+
+% \include{chapter4}
+
+\include{chapter5}
+
+\include{chapter6}
+
+
+%% è¬èŸ
+\onecolumn %1æ®µçµã«ãã
+\include{thanks}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  åèæç®
+
+% \begin{thebibliography}{99} % 10ä»¶ä»¥äžã®å Žå99ãæå®
+
+% \renewcommand{\bibname}{åèæç®}
+
+% % NTCIR
+% \bibitem{NTCIR}
+% NTCIR \\
+% \url{http://ntcir.nii.ac.jp/jp/about/}
+% % MeCab
+% \bibitem{MeCab}
+% åœ¢æçŽ è§£æãšã³ãžã³ MeCab \\
+% \url{http://mecab.googlecode.com/svn/trunk/mecab/doc/index.html}
+
+% \bibitem{ChaSen}
+% åœ¢æçŽ è§£æãšã³ãžã³ è¶ç­
+% \url{http://chasen-legacy.sourceforge.jp/}
+
+% \bibitem{BM25}
+% S. Robertson and H. Zaragoza, 
+% The Probablistic Relevance Framework: BM25 and Beyond, 
+% Foundations and Trends in Information Retrieval, Vol. 3, No. 4, pp.333-389, 2009.
+
+% \bibitem{query_likelihood}
+% J.M.Ponte, W.B.Croft, A language modeling approach to information retrieval, 
+% Proc. 21st Annual International ACM SIGIR conference on Research and Development in Information Retrieval, pp.275-281, 1998.
+
+% \bibitem{word2vec}
+% T.Mikolov, K. Chen, G.Corrado, J.Dean, 
+% Efficient Estimation of Word Representations in Vector Space, 
+% arXiv:1301.3781, 2013
+
+% \bibitem{convolutionalway}
+% R.Collobert, J.Weston, A unified architecture for natural language processing: deep neural networks with multitask learning, 
+% Proceedings of the 25th international conference on Machine Learning, pp.160-167, 2008
+
+% \bibitem{turing}
+% W.A. GaleïŒ
+% Good-Turing smoothing without tears, Journal of Quantitative Linguistics Vol.2 pp217-237, 1995
+
+% \bibitem{PMI}
+% æµèŠå€ªäž, éæ¬æžå€®, å°æ©å·å², å±±å£çŸ©å, æ¿ç§æµ©å, é«æ©æïŒ
+% å¹³æ»åèªå·±çžäºæå ±éãçšããé³å£°ãã­ã¥ã¡ã³ãèªè­ä¿¡é ŒåºŠã®æšå®, æ¥æ¬é³é¿å­ŠäŒè¬æŒè«æé(ç§) 2-10-3 pp.57-58, 2011
+
+% \bibitem{IR_research}
+% æ±å£ æµ©äº, æå ±æ€çŽ¢ã®ããã®ç¢ºççèšèªã¢ãã«ã«é¢ããååãšèª²é¡, é»å­æå ±éä¿¡å­ŠäŒèª, D Col.J93-D No. 3 pp.157-169, 2010
+
+% itunes
+% \bibitem{itunes}
+% iTunes:
+% \url{http://www.apple.com/jp/itunes/features/}
+
+% \end{thebibliography}
+
+% ä»é²
+\include{mypaper}
+
+\end{document}
