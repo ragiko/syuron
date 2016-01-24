@@ -1,4 +1,4 @@
-\chapter{クエリの関連文書を用いた\\クエリ尤度モデルの拡張}
+\chapter{クエリの関連文書を用いたクエリ尤度モデルの拡張}
 
 \section{Web文書を用いたクエリ尤度モデルの拡張} \label{sec_expanddirichlet}
 
@@ -96,7 +96,7 @@ Web文書と同様に論文によるクエリの情報量の拡張を図る．NT
 \end{table}
 
 実験は，NTCIR11 SpokenQuery\&Doc Formal-run の SQSCR SGS retrieval条件で行った．
-実験条件を表\ref{t_condition1}と\ref{t_condition2}に示す．
+実験条件を表\ref{t_condition1}と表\ref{t_condition2}に示す．
 また，特に指定しない限り，以下の実験ではクエリ・文書共に音声認識結果を用いる事とする．
 Web文書は，googleの検索結果をもとに取得し，スムージングパラメータ $\mu$ と $\nu$ は経験的に定めた．
 評価尺度は，\ref{sec_map}節で述べた，MAP値を用いた．
@@ -111,7 +111,9 @@ Web文書は，googleの検索結果をもとに取得し，スムージング�
     \label{t_condition3}
 \end{table}
 
-% TODO: 考察
+表\ref{t_condition3}から．論文を用いたときに，MAP値の向上が見られた．しかし，Web文書を用いたときは，MAP値にあまり変化が見られなかった．これは，Web文書がNTCIR11のクエリに対して，スムージングを行なえなかったためであると推察できる．論文を用いると，専門単語も広く言語モデルとして含められるため，スムージングできる可能性が高くなり，MAP値が上昇したのだと考えられる．
+
+% TODO: 未知語対応がどうなのか、証拠が欲しいところ
 
 
 
