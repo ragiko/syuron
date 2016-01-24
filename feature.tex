@@ -91,25 +91,31 @@ RNNLMは時刻tの次に予測すべき単語 $w(t+1)$を教師信号としバ�
 \section{評価実験}
 \subsection{実験条件}
 
-% 認識結果クエリkaldiの音声認識結果
-% ngramは3にしてる
-% RNNは講演全体kaldiのみ学習してる。
-% キャッシュモデルの長さは100
-% ディリクレスムージングのパラメーターはu=320 v=10
+% TODO: 重複するので注意
+キャッシュモデル，N-gramモデル，リカレントニューラルネットワーク言語モデルをクエリ尤度モデルに適応したときのMAPの比較を行う．
+実験は，NTCIR12 SpokenQuery\&Doc Formal-run の SQSCR SGS retrieval条件で行った．
+実験条件を表\ref{t_feture}に示す．
+特に指定しない限り，以下の実験ではクエリ・文書共に音声認識結果を利用した．
+
+\begin{table}
+    \centering
+    \caption{実験条件}
+    \includegraphics[width=7cm]{./image/t_feature1.png}
+    \label{t_feture}
+\end{table}
 
 
-% NTCIR12の実験の詳細をどこかに掲載する
-% Juliusの音声認識結果とkaldiの音声認識結果の精度
-% の違いにおけるMAP値の変化を調べるために,実験を行う.実験でははまず,NTCIR12のformal-runクエリに対して,JuliusとKaldiでそれぞれ認識された検索対象文書とクエリを比較,コンテンツとしてマッチする文書をシステムが抽出する.また,書き起こしの検索文書よるMAP値も,比較のため提示する.
-% クエリの音声認識結果はJuliusの認識結果を利用する．文書の特徴量としてはクエリ尤度モデルにディリクレスムージングを施したものを利用し，そのときのMAP値を両者で比較する．
 
 \subsection{実験結果}
 
-% 表1より，MAP値はJuliusの音声認識文書，Kaldiの音声認識文書，書き起こし文書の順でMAP値が上昇していることが分かり，Juliusより生成された文書を利用するよりも，Kaldiを用いた文書を利用したほうが，MAP値がよいことが確認できた．
+% TODO: クエリ尤度のときの式を定義
+実験を行った結果を図5.またクエリ尤度モデルのみの時は、式??の $\nu = 0$ とする．
 
-% \begin{table}
-%     \centering
-%     \caption{書き起こし文書と認識文書を用いたときのMAP値}
-%     \includegraphics[width=7cm]{./image/write_julius_kaldi.png}
-%     \label{query_set}
-% \end{table}
+\begin{table}
+    \centering
+    \caption{実験結果}
+    \includegraphics[width=7cm]{./image/t_feature2.png}
+    \label{t_feture}
+\end{table}
+
+% TODO: 考察
