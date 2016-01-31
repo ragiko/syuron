@@ -105,23 +105,23 @@ $X, Y$の成す角度$\theta$が小さいほど類似度$cos(\theta)$が高い�
 
 \subsection{クエリ尤度モデル}
 情報検索は，クエリと検索対象の文書群が与えられた時に，クエリに適合する度合いにしたがって文書をランキングする問題と言い換えることができる．
-すなわち，文書$D$がクエリ$Q$に適合する確率$P(D|Q)$を最大にする$D$を求める問題である．
+すなわち，文書$D$がクエリ$Q$に適合する確率$P(D|Q)$を最大にする$D'$を求める問題である．
 これをベイズの定理を用いて変形すると，式(\ref{eq_query_likelihood1})となる．
 \begin{equation}
-    \argmax_{D} P(D|Q) = \argmax_{D} \frac{P(Q|D)P(D)}{P(Q)}    \label{eq_query_likelihood1}
+    D' = \argmax_{D} P(D|Q) = \argmax_{D} \frac{P(Q|D)P(D)}{P(Q)}    \label{eq_query_likelihood1}
 \end{equation}
 式(\ref{eq_query_likelihood1})において，$P(Q)$はクエリの生成確率分布であるが，文書$D$に依存しないため定数とみなすことができる．
 また，$P(D)$は文書の生成確率分布であるが，どのような文書が与えられるかという事前知識が無い限り，一様であるとみなさざるを得ない．
 よって式(\ref{eq_query_likelihood1})は式(\ref{eq_query_likelihood2})となる．
 \begin{equation}
-    \argmax_{D} P(D|Q) = \argmax_{D} P(Q|D) \label{eq_query_likelihood2}
+    D' = \argmax_{D} P(D|Q) = \argmax_{D} P(Q|D) \label{eq_query_likelihood2}
 \end{equation}
 式(\ref{eq_query_likelihood2})の右辺は，文書に関する言語モデルがクエリを生成する確率$P(Q|D)$を表している．
 これに基づく文書検索手法を，クエリ尤度モデルと呼ぶ．
 
 クエリ尤度モデルにおいて文書を言語モデル化する際，ユニグラム言語モデルが頻繁に用いられる．
-ユニグラム言語モデルは，語が周辺の語に依らず独立に生起するという仮定に基づいている．
-ユニグラム言語モデルを$|\theta_D|$から$|Q|$個の語から成るクエリ$Q = \{q_1, q_2, ..., q_|Q|\}$が生成される尤度$P(Q|D)$は，式(\ref{eq_unigram})で計算される．
+ユニグラム言語モデルは，単語が周辺の単語に依らず独立に生起するという仮定に基づいている．
+文書 $D$ から生成されるユニグラム言語モデル $\theta_d$ から， $|Q|$ 個の単語から成るクエリ$Q = \{q_1, q_2, ..., q_{|Q|}\}$ が生成される尤度$P(Q|D)$は，式(\ref{eq_unigram})で計算される．
 \begin{equation}
     P(Q|D) = \prod^{Q}_{l=1}P(q_l|\theta_d) \label{eq_unigram}
 \end{equation}
@@ -146,10 +146,9 @@ $P(w_i|\theta_d)$は式(\ref{eq_wordprob})で計算される．
 また，文書長が短い場合には，式(\ref{eq_wordprob})では正しくモデルを推定することが出来ない．
 これらの問題に対処するために，文書モデルのスムージングが行われる．
 スムージングとは，何らかの方法で文書に含まれない語に微小の確率を割り振ることである．
-これにより質問クエリに存在しない語を含む文書に対しては式(\ref{eq_unigram})に従ってそれらの微小な確率値が掛け合わされ，
-結果としてクエリ尤度の値が小さくなり，前述の零確率問題に対処することができる．
+これにより質問クエリに存在しない単語を含む文書に対して，式(\ref{eq_unigram})の $P(q_l|\theta_d)$ に微小な確率値が割り振られ，結果として前述の零確率問題に対処することができる．
 
-本研究ではスムージングに，ディリクレスムージングを用いた．
+本研究ではスムージングに，ディリクレスムージング\cite{smoothing2}を用いた．
 ディリクレスムージングは，ディリクレ分布を文書多項分布の事前知識として導入するものであり，式(\ref{eq_dirichlet})によって計算される．
 \begin{equation}
     P(w_i|\theta_d;\mu) = \frac{ c(w_i, D) + \mu P(w_i|\theta_C) }{ |D| + \mu } \label{eq_dirichlet}
@@ -160,16 +159,16 @@ $P(w_i|\theta_d)$は式(\ref{eq_wordprob})で計算される．
 \begin{equation}
     P(w_i|\theta_d;\mu) = \frac{|D|}{|D|+\mu} \frac{c(w_i, D)}{|D|} + \frac{\mu}{|D|+\mu}P(w_i|\theta_C)  \label{eq_dirichlet2}
 \end{equation}
-式(\ref{eq_dirichlet2})によれば，補完の度合い$\frac{\mu}{|D|+\mu}$が文書長$|D|$によって補完の度合いが変化する．
+式(\ref{eq_dirichlet2})によれば，補間の度合い$\frac{\mu}{|D|+\mu}$が文書長$|D|$によって補間の度合いが変化する．
 これは長い文書ほど文書中の単語の観測サンプル数が大きくなるためにスムージングの必要性が低くなり，
 逆に短い文書ほど必要性が高くなることを反映しており，前述の短い文書においてクエリ語が存在しない問題を解決している．
 
 \section{MAP} \label{sec_map}
 SpokenQuery\&Docの評価尺度にはMAP(Mean Average Precision)が用いられている．
 これはクエリ毎の平均適合率AP値の平均である．
-クエリ$q$に対するAP値$AP(q)$は式(\ref{eq_ap})で計算される．
+クエリ $Q = \{q_1, q_2, ..., q_{|Q|}\}$ に対するAP値である $AP(q_j)$ は式(\ref{eq_ap})で計算される．
 \begin{equation}
-    AP(q) = \frac{1}{|N|} \sum^N_{i=1} \frac{i}{rank(i)}    \label{eq_ap}
+    AP(q_j) = \frac{1}{|N|} \sum^N_{i=1} \frac{i}{rank(i)}    \label{eq_ap}
 \end{equation}
-ここで$N$はクエリ$q$に対する正解文書の数，$rank(i)$はクエリ$q$の$i$番目の正解文書が，文書検索によって付けられた順位である．
+ここで$N$はクエリ$q_j$に対する正解文書の数，$rank(i)$はクエリ$q_j$の$i$番目の正解文書が，文書検索によって付けられた順位である．
 AP値，MAPは共に[0, 1]の値をとる．
