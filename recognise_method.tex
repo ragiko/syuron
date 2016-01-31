@@ -18,8 +18,8 @@ Kaldiでは音声認識研究で用いられる主要なコーパスに対して
 
 \section{評価実験}
 \subsection{実験条件}
-Juliusの音声認識結果とkaldiの音声認識結果の精度
-の違いにおけるMAP値の変化を調べるため,実験を行う.実験は，\ref{t_condition}に示す，NTCIR12のSpokenQuery\&Doc Formal-runのSQSCR SGS retrieval条件に対して,JuliusとKaldiでそれぞれ認識されたクエリと検索対象文書を取得し．クエリに対して，妥当な検索結果を検索対象文書の中から抽出する. \\文書の特徴量は，式(\ref{eq_dirichlet2}で示した, クエリ尤度モデルにディリクレスムージングを施したものを利用する．式(\ref{eq_dirichlet2})のパラメータ $\mu$ は経験的に320と定めた. \\ 
+Juliusの音声認識結果とKaldiの音声認識結果の精度
+の違いにおけるMAP値の変化を調べるため,実験を行う.実験は，\ref{t_condition}に示す，NTCIR12のSpokenQuery\&Doc Formal-runのSQSCR SGS retrieval条件に対して,JuliusとKaldiでそれぞれ認識されたクエリと検索対象文書を取得し．クエリに対して，妥当な検索結果を検索対象文書の中から抽出する. \\文書の特徴量は，式(\ref{eq_dirichlet2})で示した, クエリ尤度モデルにディリクレスムージングを施したものを利用する．式(\ref{eq_dirichlet2})のパラメータ $\mu$ は経験的に320と定めた. \\ 
 評価尺度は，\ref{sec_map}節で述べたMAP値を用いた．また,書き起こしの検索文書よるMAP値も比較のため提示する.
 
 \begin{table}[htbp]
