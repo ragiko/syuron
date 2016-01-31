@@ -66,7 +66,7 @@
 \setlength{\topskip}{\Cht}
 
 % ç« çªå·ïŒ
-\renewcommand{\chaptermark}[1]{\markboth{ç¬¬\ \thechapter\ ç« ~#1}{}}
+\renewcommand{\chaptermark}[1]{\markboth{第\ \thechapter\ 章~#1}{}} 
 
 % subsectionãç®æ¬¡ã«è¡šç€º
 \setcounter{tocdepth}{2}
@@ -204,16 +204,21 @@
 \include{thanks}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%  åèæç®
+%%  参考文献
 
-% \begin{thebibliography}{99} % 10ä»¶ä»¥äžã®å Žå99ãæå®
+\begin{thebibliography}{99} % 10件以上の場合99を指定
 
-% \renewcommand{\bibname}{åèæç®}
+\renewcommand{\bibname}{参考文献}
 
-% % NTCIR
-% \bibitem{NTCIR}
-% NTCIR \\
-% \url{http://ntcir.nii.ac.jp/jp/about/}
+% NTCIR
+\bibitem{NTCIR}
+NTCIR \\
+\url{http://ntcir.nii.ac.jp/jp/about/}
+
+\bibitem{query_likelihood}
+J.M.Ponte, W.B.Croft, A language modeling approach to information retrieval, 
+Proc. 21st Annual International ACM SIGIR conference on Research and Development in Information Retrieval, pp.275-281, 1998.
+
 % % MeCab
 % \bibitem{MeCab}
 % åœ¢æçŽ è§£æãšã³ãžã³ MeCab \\
@@ -227,10 +232,6 @@
 % S. Robertson and H. Zaragoza, 
 % The Probablistic Relevance Framework: BM25 and Beyond, 
 % Foundations and Trends in Information Retrieval, Vol. 3, No. 4, pp.333-389, 2009.
-
-% \bibitem{query_likelihood}
-% J.M.Ponte, W.B.Croft, A language modeling approach to information retrieval, 
-% Proc. 21st Annual International ACM SIGIR conference on Research and Development in Information Retrieval, pp.275-281, 1998.
 
 % \bibitem{word2vec}
 % T.Mikolov, K. Chen, G.Corrado, J.Dean, 
@@ -257,9 +258,192 @@
 % iTunes:
 % \url{http://www.apple.com/jp/itunes/features/}
 
-% \end{thebibliography}
 
-% ä»é²
+
+
+
+
+
+
+
+
+% \bibitem{bib1}
+% Kourogi, M., Kurata, T., \& Ishikawa, T., (2010).\\
+% A method of pedestrian dead reckoning using action recognition.\\
+% Proceedings of the Position Location and Navigation Symposium (PLANS)\\
+% 2010 IEEE/ION, pp.85-89, 2010.
+
+% \bibitem{bib2}
+% 宮城優里, 大西正輝, 渡辺知恵美, \& 伊藤貴之., (2015).\\
+% 文字列化による人流データの圧縮と可視化.\\
+% 第7回データ工学と情報マネジメントに関するフォーラム （DEIM 2015）, F8-5, 2015.
+
+% \bibitem{bib3}
+% 矢田勝俊., (2008).\\
+% スーパーマーケットにおける顧客動線分析と文字列解析.\\
+% 統計数理(2008) 特集「データマイニングと統計数理」, 第56巻, 第2号, 199-213.
+
+% \bibitem{bib4}
+% 服部可奈子, 豊嶋伊知郎, 板倉豊和, 吉田琢史, 折原良平, \& （株）東芝 研究開発センター システム技術ラボラトリー., (2007).\\
+% 時系列の位置データを用いた人間行動分析 顧客行動分析，工場ムダ作業，不審者発見に対する適用例\\
+% 第21回人工知能学会全国大会 (JSAI2007), 2C5-6, 2007.
+
+% \bibitem{bib5}
+% 岩田翔汰, 福原知宏, 一刈良介, 蔵田武志, 中平勝子, \& 北島宗雄., (2015).\\
+% 可視光通信とWMSに基づくピッキング作業動線の分析と改善効果予測.\\
+% サービス学会 第3回 国内大会, D-7, 2015.
+
+% \bibitem{bib6}
+% 春山真一郎., (2013).\\
+% 可視光通信.\\ 
+% 電子情報通信学会誌, 電波航法研究会 第3回研究会, Vol.94, No.12, pp.1055-1059, 2011.
+
+% \bibitem{bib7}
+% 原田典明, 青木勝, 三上明子, 峯下聡志, \& 斎藤志傑. ,(2011).\\
+% 人の行動を「見える化」する動線解析技術と活用例.\\
+% NEC技報 映像ソリューション特集, Vol.64, No.3, pp.16-21, 2011.
+
+% \bibitem{bib8}
+% 相澤彰子., (2007).\\
+% 共起に基づく類似性尺度.\\
+% オペレーションズ・リサーチ, Vol.52, No.11, pp.706-712, 2007.
+
+% \bibitem{bib9}
+% Douglas Steinley, \& Michael J. Brusco., (2007).\\
+% Initializing kmeans Batch Clustering: A Critical Evaluation of Several Techniques.\\ Journal of Classification, Vol.24, No.1, pp.99-121, 2007.
+% %神嶌敏弘., (2003).\\
+% %データマイニング分野のクラスタリング手法（1）.\\
+% %人工知能学会誌, Vol.18, No.1, pp.59-65, 2003.
+
+% \bibitem{bib10}
+% David Arthur, \& Sergei Vassilvitskii., (2007).\\
+% k-means++: The advantages of careful seeding.\\
+% ACM-SIAM symposium on Discrete algorithm, pp.1027-1035, 2007. Proc.
+
+% \bibitem{bib11}
+% Cortes, C., \& Vapnik, V. (1995).\\
+% Support-vector networks.\\
+% Machine learning, 20(3), 273-297.
+
+% \bibitem{bib12}
+% C. E. Shannon. (1948).\\
+% A mathematical theory of communication.\\
+% Bell System Technical Journal, Vol.27, pp.379 2013423, 623 2013 656, 1948.
+
+%\bibitem{bib1}
+%Takehara, M., Tamura, S., Tenmoku, R., Kurata, T., \& Hayamizu, S. (2011).\\
+%The role of speech technology in service-operation estimation.\\
+%In Speech Database and Assessments (Oriental COCOSDA), 2011 International Conference on (pp. 116-119). IEEE.
+%
+%\bibitem{nojiri}
+%野尻弘也, 竹原正矩, 前山賢人, 田村哲嗣, 蔵田武志, \& 速水悟. (2013).\\
+%H-035 位置・発話・会計データを用いた配膳待ち時間推定の試み (H 分野: 画像認識・メディア理解, 一般論文).\\
+%情報科学技術フォーラム講演論文集, 12(3), 171-174.
+%
+%\bibitem{uno}
+%宇野太久哉，竹原正矩，田村哲嗣，速水悟，\& 蔵田武志．(2014).\\
+%E-021 作業推定に向けた環境雑音のクラス分類 (E分野: 自然言語・音声・音楽, 一般論文).\\
+%情報科学技術フォーラム講演論文集, 13(2)，253-256.
+%
+%\bibitem{kawase}
+%Kawase, T., Takehara, M., Tamura, S., Hayamizu, S., Tenmoku, R., \& Kurata, T. (2014).\\
+%Improvement of utterance clustering by using employees' sound and area data.\\
+%In Acoustics, Speech and Signal Processing (ICASSP), 2014 IEEE International Conference on (pp. 3047-3051). IEEE.
+%
+%\bibitem{bib2}
+%Araki, S., Hori, T.,Yoshioka, T., Fujimoto, M., Watanabe, S., Oba, T., Ogawa, A., Otsuka, K., Mikami, D., Delcroix, M., Kinoshita, K., Nakatani, T., Nakamura, A., Yamato, J. (2011).\\
+%Low-latency meeting recognition and understanding using distant microphones.\\
+%In Hands-free Speech Communication and Microphone Arrays (HSCMA), 2011 Joint Workshop on (pp. 151-152). IEEE.
+%
+%\bibitem{bib3}
+%大村廉, 納谷太, 野間春生, \& 小暮潔. (2009).\\
+%看護業務支援のためのセンサネットワーク・アーキテクチャ.\\
+%情報処理学会研究報告. UBI,[ユビキタスコンピューティングシステム], 2009(8), 1-8.
+%
+%\bibitem{bib4}
+%上岡玲子, 新村猛, 天目隆平, 大隈隆史, \& 蔵田武志. (2012).\\
+%従業員行動計測と可視化によるサービス品質管理活動支援 (実世界センシングとその応用).\\
+%電子情報通信学会技術研究報告. PRMU, パターン認識・メディア理解, 111(379), 251-256.
+%
+%\bibitem{tenmoku}
+%天目隆平, 竹原正矩, 速水悟, \& 蔵田武志. (2010).\\
+%労働集約型サービス-従業員行動計測技術に基づく分析と可視化.\\
+%HCG シンポジウム, 443-448.
+%
+%\bibitem{bib5}
+%Matsui, T., \& Tanabe, K. (2006).\\
+%Comparative study of speaker identification methods: dPLRM, SVM and GMM.\\
+%IEICE transactions on information and systems, 89(3), 1066-1073.
+%
+%\bibitem{bib6}
+%Reynolds, D. A., \& Rose, R. C. (1995).\\
+%Robust text-independent speaker identification using Gaussian mixture speaker models.\\
+%Speech and Audio Processing, IEEE Transactions on, 3(1), 72-83.
+%
+%\bibitem{bib7}
+%Chen, S. H., \& Luo, Y. R. (2009).\\
+%Speaker verification using MFCC and support vector machine.\\
+%In Proceedings of the International MultiConference of Engineers and Computer Scientists (Vol. 1, pp. 18-20).
+%
+%\bibitem{bib8}
+%Yamada, T., Wang, L., \& Kai, A. (2013).\\
+%Improvement of distant-talking speaker identification using bottleneck features of DNN.\\
+%In INTERSPEECH (pp. 3661-3664).
+%
+%\bibitem{da}
+%Vincent, P., Larochelle, H., Bengio, Y., \& Manzagol, P. A. (2008).\\
+%Extracting and composing robust features with denoising autoencoders.\\
+%In Proceedings of the 25th international conference on Machine learning (pp. 1096-1103). ACM.
+%
+%\bibitem{sda}
+%Vincent, P., Larochelle, H., Lajoie, I., Bengio, Y., \& Manzagol, P. A. (2010).\\
+%Stacked denoising autoencoders: Learning useful representations in a deep network with a local denoising criterion.\\
+%The Journal of Machine Learning Research, 11, 3371-3408.
+%
+%\bibitem{bp}
+%Rumelhart, D. E., Hinton, G. E., \& Williams, R. J. (1988).\\
+%Learning representations by back-propagating errors.\\
+%Cognitive modeling.
+%
+%\bibitem{svm}
+%Cortes, C., \& Vapnik, V. (1995).\\
+%Support-vector networks.\\
+%Machine learning, 20(3), 273-297.
+%
+%\bibitem{tool0}
+%Thorsten Joachims, (2014).\\
+%SVM-light.\\
+%http://svmlight.joachims.org/
+%
+%\bibitem{tool01}
+%Thorsten Joachims, (2014).\\
+%SVM-Multiclass.\\
+%http://www.cs.cornell.edu/people/tj/svm\_light/svm\_multiclass.html
+%
+%\bibitem{tool1}
+%C.Chang, C.Lin, (2014).\\
+%LIBSVM -- A Library for Support Vector Machines.\\
+%http://www.csie.ntu.edu.tw/~cjlin/libsvm/
+%
+%\bibitem{tool2}
+%I.J.Goodfellow, D.Warde-Farley, P.Lamblin, V.Dumoulin, M.Mirza, R.Pascanu, J.Bergstra, F.Bastien, Y.Bengio, (2014).\\
+%Pylearn2: a machine learning research library.\\
+%http://arxiv.org/abs/1308.4214
+%
+%\bibitem{ada}
+%Zhu, J., Zou, H., Rosset, S., \& Hastie, T. (2009).\\
+%Multi-class adaboost.\\
+%Statistics and Its.
+
+
+
+
+
+
+
+
+\end{thebibliography}
+
 \include{mypaper}
 
 \end{document}
