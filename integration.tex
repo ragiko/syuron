@@ -10,24 +10,22 @@
 \begin{table}[h]
     \centering
     \caption{実験条件}
-    \includegraphics[width=7cm]{./image/t_ex_patern.png}
+    \includegraphics[width=8cm]{./image/t_ex_patern2.png}
     \label{t_ex_patern}
 \end{table}
 実験は，表\ref{t_condition1}と同様に，NTCIR11 SpokenQuery\&Doc Formal-run の SQSCR SGS Retrieval条件で行った．
-基本的に，論文の利用とKaldiを用いた検索文書を用い，パターン(1) クエリ尤度モデルのみ, パターン(2) キャッシュモデルの2つのパターンについて，変化させたときのMAP値を算出する．
-また，2つのパターンのそれぞれに対し，前後の部分文書の情報を加味をした4パターンについて比較，分析した．
-
-
+基本的に，論文の利用とKaldiを用いた検索文書を用い，条件(1) クエリ尤度モデルのみ, 条件(2) キャッシュモデルの2つの条件について，変化させたときのMAP値を算出する．
+また，2つの条件のそれぞれに対し，前後の部分文書の情報を加味をした4つの条件について比較，分析した．
 
 \subsection{実験結果}
 
 \begin{table}[htbp]
     \centering
     \caption{提案手法を統合したときのMAP値}
-    \includegraphics[width=7cm]{./image/t_integration.png}
+    \includegraphics[width=5cm]{./image/t_integration4.png}
     \label{t_integration}
 \end{table}
 
-実験を行った結果を表\ref{t_integration}に示す．表\ref{t_integration}から，パターン(1)とパターン(2)において，それぞれに前後の部分文書の情報を加味した場合，MAP値は大幅に改善した．しかし，パターン(2)は，パターン(1)よりMAP値が大きいにも関わらず，前後の部分文書情報を加味したパターン(4)はパターン(3)よりもMAP値が大きくならなかった．これは，キャッシュモデルがすでに検索対象文書の出現場所以前の情報を保持しているため，前後の部分文書情報を加味した場合に重複した特徴量となってしまい，MAP値が低下するのではないかと考えられる．
+実験を行った結果を表\ref{t_integration}に示す．表\ref{t_integration}から，条件(1)と条件(2)において，それぞれに前後の部分文書の情報を加味した場合，MAP値は大幅に改善した．しかし，条件(2)は，条件(1)よりMAP値が大きいにも関わらず，前後の部分文書情報を加味した条件(4)は条件(3)よりもMAP値が大きくならなかった．これは，キャッシュモデルがすでに検索対象文書の出現場所以前の情報を保持しているため，前後の部分文書情報を加味した場合に重複した特徴量となってしまい，MAP値が低下するのではないかと考えられる．
 
 % TODO: パラメータの説明もメモしといた方が良い
