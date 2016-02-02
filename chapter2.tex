@@ -48,10 +48,10 @@ MeCabとは， 京都大学情報学研究科-日本電信電話株式会社コ�
 結果，音声認識は $P(X|d)$と$P(d)$によってモデル化されると考えることができる．$P(X|d)$は，単語列 $P(d)$に対して特徴ベクトル $X$ が観測される確率である．また，$P(d)$ は単語列$d$の言語的な生起確率である．
 
 \subsection{音響モデル}
-音響モデルとは，音素や音節の周波数パターンを用いて入力音声のマッチングを行うための確率的モデルである．式(\ref{onsei_ninsiki3})の $P(X|D)$ は単語列 $D = (w_1, w_2, ..., w_{|D|})$ に対する音響パターンが $X$ である確率を表し，音響モデルと照合することによって計算される．音響モデルはあらゆる文や単語パターンの音響確率を計算できるように音素に代表される音韻単位で用意される．すなわち単語列は音素列 $m_1, m_2, ... , m_I $ に展開され，式(\ref{onkyo_model1})で計算される．
+音響モデルとは，音素や音節の周波数パターンを用いて入力音声のマッチングを行うための確率的モデルである．式(\ref{onsei_ninsiki3})の $P(X|d)$ は単語列 $d = (w_1, w_2, ..., w_{|d|})$ に対する音響パターンが $X$ である確率を表し，音響モデルと照合することによって計算される．音響モデルはあらゆる文や単語パターンの音響確率を計算できるように音素に代表される音韻単位で用意される．すなわち単語列は音素列 $m_1, m_2, ... , m_I $ に展開され，式(\ref{onkyo_model1})で計算される．
 
 \begin{equation}
-    P(X|D) = \prod_{I}  P(X_i|m_i) 
+    P(X|d) = \prod_{I}  P(X_i|m_i) 
     \label{onkyo_model1}
 \end{equation}
 
@@ -106,29 +106,29 @@ $X, Y$の成す角度$\theta$が小さいほど類似度$cos(\theta)$が高い�
 
 \section{クエリ尤度モデル}
 情報検索は，クエリと検索対象の文書群が与えられた時に，クエリに適合する度合いにしたがって文書をランキングする問題と言い換えることができる．
-すなわち，文書$D$がクエリ$Q$に適合する確率$P(D|Q)$を最大にする$D'$を求める問題である．
+すなわち，文書$d$がクエリ$Q$に適合する確率$P(d|Q)$を最大にする$d'$を求める問題である．
 これをベイズの定理を用いて変形すると，式(\ref{eq_query_likelihood1})となる．
 \begin{equation}
-    D' = \argmax_{D} P(D|Q) = \argmax_{D} \frac{P(Q|D)P(D)}{P(Q)}    \label{eq_query_likelihood1}
+    d' = \argmax_{d} P(d|Q) = \argmax_{d} \frac{P(Q|d)P(d)}{P(Q)}    \label{eq_query_likelihood1}
 \end{equation}
-式(\ref{eq_query_likelihood1})において，$P(Q)$はクエリの生成確率分布であるが，文書$D$に依存しないため定数とみなすことができる．
-また，$P(D)$は文書の生成確率分布であるが，どのような文書が与えられるかという事前知識が無い限り，一様であるとみなさざるを得ない．
+式(\ref{eq_query_likelihood1})において，$P(Q)$はクエリの生成確率分布であるが，文書$d$に依存しないため定数とみなすことができる．
+また，$P(d)$は文書の生成確率分布であるが，どのような文書が与えられるかという事前知識が無い限り，一様であるとみなさざるを得ない．
 よって式(\ref{eq_query_likelihood1})は式(\ref{eq_query_likelihood2})となる．
 \begin{equation}
-    D' = \argmax_{D} P(D|Q) = \argmax_{D} P(Q|D) \label{eq_query_likelihood2}
+    d' = \argmax_{d} P(d|Q) = \argmax_{d} P(Q|d) \label{eq_query_likelihood2}
 \end{equation}
-式(\ref{eq_query_likelihood2})の右辺は，文書に関する言語モデルがクエリを生成する確率$P(Q|D)$を表している．
+式(\ref{eq_query_likelihood2})の右辺は，文書に関する言語モデルがクエリを生成する確率$P(Q|d)$を表している．
 これに基づく文書検索手法を，クエリ尤度モデルと呼ぶ．
 
 クエリ尤度モデルにおいて文書を言語モデル化する際，ユニグラム言語モデルが頻繁に用いられる．
 ユニグラム言語モデルは，単語が周辺の単語に依らず独立に生起するという仮定に基づいている．
-文書 $D$ から生成されるユニグラム言語モデル $\theta_d$ から， $|Q|$ 個の単語から成るクエリ$Q = \{q_1, q_2, ..., q_{|Q|}\}$ が生成される尤度$P(Q|D)$は，式(\ref{eq_unigram})で計算される．
+文書 $d$ から生成されるユニグラム言語モデル $\theta_d$ から， $|Q|$ 個の単語から成るクエリ$Q = \{q_1, q_2, ..., q_{|Q|}\}$ が生成される尤度$P(Q|d)$は，式(\ref{eq_unigram})で計算される．
 \begin{equation}
-    P(Q|D) = \prod^{Q}_{l=1}P(q_l|\theta_d) \label{eq_unigram}
+    P(Q|d) = \prod^{Q}_{l=1}P(q_l|\theta_d) \label{eq_unigram}
 \end{equation}
 ここで，クエリ$Q$中において，語彙$V = \{w_1, w_2, ..., w_|V|\}$が複数回出現する可能性を考慮すると，式(\ref{eq_unigram})は式(\ref{eq_unigram2})と変形できる．
 \begin{equation}
-    P(Q|D) = \prod^{Q}_{w_i \in V}P(w_i|\theta_d)^{c(w_i, Q)} \label{eq_unigram2}
+    P(Q|d) = \prod^{Q}_{w_i \in V}P(w_i|\theta_d)^{c(w_i, Q)} \label{eq_unigram2}
 \end{equation}
 ここで$c(w_i, Q)$はクエリ$Q$において語$w_i$が出現した回数である．
 このように，クエリ尤度モデルによる文書検索問題は，$P(w_i|\theta_d)$の推定問題に帰着する．
@@ -136,9 +136,9 @@ $X, Y$の成す角度$\theta$が小さいほど類似度$cos(\theta)$が高い�
 本研究では，文書モデル$\theta_d$の推定方法に，文書中の語の相対頻度を用いた．
 $P(w_i|\theta_d)$は式(\ref{eq_wordprob})で計算される．
 \begin{equation}
-    P(w_i|\theta_d) = \frac{c(w_i,D)}{|D|}    \label{eq_wordprob}
+    P(w_i|\theta_d) = \frac{c(w_i,d)}{|d|}    \label{eq_wordprob}
 \end{equation}
-ここで$c(w_i,D)$は文書$D$中の単語の出現回数を表し，$|D|$は文書$D$の単語数を表す．
+ここで$c(w_i,d)$は文書$d$中の単語の出現回数を表し，$|d|$は文書$d$の単語数を表す．
 これは文書における単語が観測された状況における，多項分布のパラメータの最尤推定に他ならない．
 
 \subsection{ディリクレスムージング}  \label{sec_dirichlet}
@@ -152,15 +152,15 @@ $P(w_i|\theta_d)$は式(\ref{eq_wordprob})で計算される．
 本研究ではスムージングに，ディリクレスムージング\cite{smoothing2}を用いた．
 ディリクレスムージングは，ディリクレ分布を文書多項分布の事前知識として導入するものであり，式(\ref{eq_dirichlet})によって計算される．
 \begin{equation}
-    P(w_i|\theta_d;\mu) = \frac{ c(w_i, D) + \mu P(w_i|\theta_C) }{ |D| + \mu } \label{eq_dirichlet}
+    P(w_i|\theta_d;\mu) = \frac{ c(w_i, d) + \mu P(w_i|\theta_C) }{ |d| + \mu } \label{eq_dirichlet}
 \end{equation}
 ここで，$\mu$はディリクレ事前分布のパラメータであり，正の値を持つ．また，$\theta_C$はディリクレスムージングのための文書コレクションから
 推定された文書モデルである．
 式(\ref{eq_dirichlet})を式(\ref{eq_wordprob})の拡張になるように変形すると，式(\ref{eq_dirichlet2})となる．
 \begin{equation}
-    P(w_i|\theta_d;\mu) = \frac{|D|}{|D|+\mu} \frac{c(w_i, D)}{|D|} + \frac{\mu}{|D|+\mu}P(w_i|\theta_C)  \label{eq_dirichlet2}
+    P(w_i|\theta_d;\mu) = \frac{|d|}{|d|+\mu} \frac{c(w_i, d)}{|d|} + \frac{\mu}{|d|+\mu}P(w_i|\theta_C)  \label{eq_dirichlet2}
 \end{equation}
-式(\ref{eq_dirichlet2})によれば，補間の度合い$\frac{\mu}{|D|+\mu}$が文書長$|D|$によって補間の度合いが変化する．
+式(\ref{eq_dirichlet2})によれば，補間の度合い$\frac{\mu}{|d|+\mu}$が文書長$|d|$によって補間の度合いが変化する．
 これは長い文書ほど文書中の単語の観測サンプル数が大きくなるためにスムージングの必要性が低くなり，
 逆に短い文書ほど必要性が高くなることを反映しており，前述の短い文書においてクエリ語が存在しない問題を解決している．
 
